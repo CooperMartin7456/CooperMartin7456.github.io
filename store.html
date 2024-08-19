@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to your CSS -->
+    <title>Cricket Equipment</title>
+</head>
+<body>
+    <h1>Cricket Equipment Store</h1>
+    <div class="product-list">
+        <div th:each="product : ${products}">
+            <div class="product-item">
+                <img th:src="@{${product.imageUrl}}" alt="Product Image"/>
+                <h2 th:text="${product.name}"></h2>
+                <p th:text="${product.description}"></p>
+                <p>Price: <span th:text="${product.price}"></span></p>
+            </div>
+        </div>
+    </div>
+    <form method="post" action="/add">
+        <input type="text" name="name" placeholder="Product Name" required>
+        <input type="text" name="description" placeholder="Product Description" required>
+        <input type="number" name="price" placeholder="Product Price" required>
+        <input type="text" name="imageUrl" placeholder="Image URL" required>
+        <button type="submit">Add Product</button>
+    </form>
+</body>
+</html>
