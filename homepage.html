@@ -40,7 +40,7 @@
             padding: 10px 0;
             background: #008CBA;
             color: white;
-            position: relative; /* Changed from absolute to relative */
+            position: relative; 
             width: 100%;
         }
 
@@ -50,6 +50,22 @@
 
         .active {
             display: block; /* Show only the active section */
+        }
+
+        .product-image {
+            max-width: 100px; /* Set a maximum width for product images */
+            display: block;
+            margin: 10px auto; /* Center the images */
+        }
+
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px; /* Space between products */
+            text-align: center; /* Center text */
         }
     </style>
 </head>
@@ -74,18 +90,36 @@
         <section id="products1">
             <h2>Featured Products</h2>
             <ul>
-                <li><strong>Cricket Bat</strong> - Perfect for power hitting! Price: $150</li>
-                <li><strong>Cricket Ball</strong> - Durable and great for practice. Price: $10</li>
-                <li><strong>Protective Gear</strong> - Ensure safety while playing. Price: $50</li>
+                <li>
+                    <img src="path/to/cricket-bat.jpg" alt="Cricket Bat" class="product-image">
+                    <strong>Cricket Bat</strong> - Perfect for power hitting! Price: $150
+                </li>
+                <li>
+                    <img src="path/to/cricket-ball.jpg" alt="Cricket Ball" class="product-image">
+                    <strong>Cricket Ball</strong> - Durable and great for practice. Price: $10
+                </li>
+                <li>
+                    <img src="path/to/protective-gear.jpg" alt="Protective Gear" class="product-image">
+                    <strong>Protective Gear</strong> - Ensure safety while playing. Price: $50
+                </li>
             </ul>
         </section>
 
         <section id="products2">
             <h2>More Awesome Products</h2>
             <ul>
-                <li><strong>Cricket Helmet</strong> - Protect your head while batting. Price: $45</li>
-                <li><strong>Cricket Pads</strong> - Comfortable and protective. Price: $30</li>
-                <li><strong>Cricket Gloves</strong> - For a better grip. Price: $25</li>
+                <li>
+                    <img src="path/to/cricket-helmet.jpg" alt="Cricket Helmet" class="product-image">
+                    <strong>Cricket Helmet</strong> - Protect your head while batting. Price: $45
+                </li>
+                <li>
+                    <img src="path/to/cricket-pads.jpg" alt="Cricket Pads" class="product-image">
+                    <strong>Cricket Pads</strong> - Comfortable and protective. Price: $30
+                </li>
+                <li>
+                    <img src="path/to/cricket-gloves.jpg" alt="Cricket Gloves" class="product-image">
+                    <strong>Cricket Gloves</strong> - For a better grip. Price: $25
+                </li>
             </ul>
         </section>
     </main>
