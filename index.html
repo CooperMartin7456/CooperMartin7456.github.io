@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cricket Store</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to the Cricket Store</h1>
+        <nav>
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('products1')">Products Page 1</a>
+            <a href="#" onclick="showSection('products2')">Products Page 2</a>
+            <a href="#" onclick="showSection('cart')">Shopping Cart</a>
+            <input type="text" id="search-bar" placeholder="Search products..." onkeyup="searchProducts()">
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <h2>Your One-stop Destination for Cricket Gear</h2>
+            <p>Discover the best cricket bats, balls, and accessories from top brands!</p>
+            <p>Whether you are a beginner or a seasoned player, we have everything you need to enhance your game.</p>
+            <p><strong>Shop Now!</strong></p>
+        </section>
+
+        <!-- Products Page 1 -->
+        <section id="products1">
+            <h2>Featured Products</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dw9507ee8e/images/66634001/Rebel_66634001-00_hi-res.jpg?sw=750&sh=750&sm=fit&q=60" alt="Cricket Bat" class="product-image">
+                    <h3>Cricket Bat</h3>
+                    <p>Perfect for power hitting!</p>
+                    <p>Price: $150</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Bat', 150)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dw485781dc/images/418851/Rebel_418851_hi-res.jpg?sw=750&sh=750&sm=fit&q=60" alt="Cricket Ball" class="product-image">
+                    <h3>Cricket Ball</h3>
+                    <p>Durable and great for practice.</p>
+                    <p>Price: $27.95</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Ball', 27.95)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dw9ec05363/images/58070001/Rebel_58070001_white_hi-res.jpg?sw=1000&sh=1000&sm=fit&q=70" alt="Protective Gear" class="product-image">
+                    <h3>Protective Gear</h3>
+                    <p>Ensure safety while playing.</p>
+                    <p>Price: $50</p>
+                    <button class="add-to-cart" onclick="addToCart('Protective Gear', 50)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Page 2 -->
+        <section id="products2">
+            <h2>More Awesome Products</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dwccca8d0a/images/61410101/Rebel_61410101-00_navy_hi-res.jpg?sw=750&sh=750&sm=fit&q=60" alt="Cricket Helmet" class="product-image">
+                    <h3>Cricket Helmet</h3>
+                    <p>Protect your head while batting.</p>
+                    <p>Price: $45</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Helmet', 45)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dw7eac6fb8/images/63681401/Rebel_63681401-01_white_hi-res.jpg?sw=750&sh=750&sm=fit&q=60" alt="Cricket Pads" class="product-image">
+                    <h3>Cricket Pads</h3>
+                    <p>Comfortable and protective.</p>
+                    <p>Price: $30</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Pads', 30)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dw7fb6a10d/images/67126001/Rebel_67126001_whitenavy_hi-res.jpg?sw=750&sh=750&sm=fit&q=60" alt="Cricket Gloves" class="product-image">
+                    <h3>Cricket Gloves</h3>
+                    <p>For a better grip.</p>
+                    <p>Price: $25</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Gloves', 25)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shopping Cart Section -->
+        <section id="cart" class="cart">
+            <h2>Your Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <p id="cart-total">Total: $0</p>
+            <button id="checkout-button" onclick="checkout()">Proceed to Checkout</button>
+        </section>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 Cricket Store. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
