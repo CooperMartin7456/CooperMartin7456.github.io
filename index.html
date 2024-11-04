@@ -80,6 +80,36 @@
                     <p>Price: $25</p>
                     <button class="add-to-cart" onclick="addToCart('Cricket Gloves', 25)">Add to Cart</button>
                 </div>
+
+                <!-- Added new product items -->
+                <div class="product-item">
+                    <img src="https://example.com/path-to-your-image-1.jpg" alt="Cricket Shoes" class="product-image">
+                    <h3>Cricket Shoes</h3>
+                    <p>Lightweight and durable for sprinting.</p>
+                    <p>Price: $75</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Shoes', 75)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://example.com/path-to-your-image-2.jpg" alt="Cricket Bag" class="product-image">
+                    <h3>Cricket Bag</h3>
+                    <p>Store all your gear safely.</p>
+                    <p>Price: $40</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Bag', 40)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://example.com/path-to-your-image-3.jpg" alt="Cricket Cap" class="product-image">
+                    <h3>Cricket Cap</h3>
+                    <p>Stay protected from the sun.</p>
+                    <p>Price: $15</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Cap', 15)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://example.com/path-to-your-image-4.jpg" alt="Cricket Socks" class="product-image">
+                    <h3>Cricket Socks</h3>
+                    <p>Comfortable and breathable.</p>
+                    <p>Price: $10</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Socks', 10)">Add to Cart</button>
+                </div>
             </div>
         </section>
 
@@ -133,7 +163,7 @@
     <script>
         const subscribers = [];  // Array to store subscribed emails
         const cart = [];         // Array to store items in the shopping cart
-        const reviews = [];       // Array to store reviews
+        const reviews = [];      // Array to store reviews
 
         function showSection(sectionId) {
             const sections = document.querySelectorAll('main > section');
@@ -156,7 +186,7 @@
             cartItemsContainer.innerHTML = ''; // Clear existing items
             let total = 0; // Track total price
 
-            cart.forEach((item, index) => {
+            cart.forEach((item) => {
                 const listItem = document.createElement('div');
                 listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
                 cartItemsContainer.appendChild(listItem);
