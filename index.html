@@ -18,6 +18,7 @@
             <a href="#" onclick="showSection('products1')">Products Page 1</a>
             <a href="#" onclick="showSection('products2')">Products Page 2</a>
             <a href="#" onclick="showSection('cart')">Shopping Cart</a>
+            <a href="#" onclick="showSection('subscription')">Subscribe</a>
             <input type="text" id="search-bar" placeholder="Search products..." onkeyup="searchProducts()">
         </nav>
     </header>
@@ -27,7 +28,7 @@
         <!-- Home Section -->
         <section id="home" class="active">
             <h2>Your One-stop Destination for Cricket Gear</h2>
-	<img src="Simple.jpg">
+            <img src="Simple.jpg">
             <p>Discover the best cricket bats, balls, and accessories from top brands!</p>
             <p>Whether you are a beginner or a seasoned player, we have everything you need to enhance your game.</p>
             <p><strong>Shop Now!</strong></p>
@@ -96,6 +97,17 @@
             <p id="cart-total">Total: $0</p>
             <button id="checkout-button" onclick="checkout()">Proceed to Checkout</button>
         </section>
+
+        <!-- Subscription Section -->
+        <section id="subscription" style="display: none;">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest products and offers!</p>
+            <form id="subscription-form" onsubmit="subscribe(event)">
+                <input type="email" id="email" required placeholder="Enter your email" />
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="subscription-message"></p>
+        </section>
     </main>
     
     <!-- Footer Section -->
@@ -105,5 +117,23 @@
 
     <!-- Link to the external JavaScript file -->
     <script src="script.js"></script>
+    <script>
+        // Function to show the corresponding section based on the link clicked
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Function to handle subscription
+        function subscribe(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            document.getElementById('subscription-message').innerText = `Thank you for subscribing with the email: ${email}`;
+            document.getElementById('subscription-form').reset();
+        }
+    </script>
 </body>
 </html>
