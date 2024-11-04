@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Cricket Store</title>
@@ -9,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
@@ -22,7 +24,7 @@
             <input type="text" id="search-bar" placeholder="Search products..." onkeyup="searchProducts()">
         </nav>
     </header>
-    
+
     <!-- Main Content -->
     <main>
         <!-- Home Section -->
@@ -101,15 +103,20 @@
         <!-- Subscription Section -->
         <section id="subscription" style="display: none;">
             <h2>Subscribe to Our Newsletter</h2>
-            <p>Stay updated with the latest products and offers!</p>
+            <p>Stay updated with the latest products and offers! You get <strong>10% off</strong> every time you buy an item.</p>
             <form id="subscription-form" onsubmit="subscribe(event)">
                 <input type="email" id="email" required placeholder="Enter your email" />
                 <button type="submit">Subscribe</button>
             </form>
             <p id="subscription-message"></p>
+            <button id="show-subscribers-button" onclick="showSubscribers()">Show Subscribers</button>
+            <div id="subscribers-list" style="display: none;">
+                <h3>List of Subscribers:</h3>
+                <ul id="subscriber-names"></ul>
+            </div>
         </section>
     </main>
-    
+
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2023 Cricket Store. All rights reserved.</p>
@@ -118,6 +125,9 @@
     <!-- Link to the external JavaScript file -->
     <script src="script.js"></script>
     <script>
+        // Array to hold subscribers
+        const subscribers = [];
+
         // Function to show the corresponding section based on the link clicked
         function showSection(sectionId) {
             const sections = document.querySelectorAll('main > section');
@@ -131,9 +141,30 @@
         function subscribe(event) {
             event.preventDefault();
             const email = document.getElementById('email').value;
+            subscribers.push(email); // Add email to subscribers array
             document.getElementById('subscription-message').innerText = `Thank you for subscribing with the email: ${email}`;
             document.getElementById('subscription-form').reset();
         }
+
+        // Function to show the subscribers
+        function showSubscribers() {
+            const subscriberListElem = document.getElementById('subscriber-names');
+            subscriberListElem.innerHTML = ""; // Clear previous list
+
+            if (subscribers.length === 0) {
+                subscriberListElem.innerHTML = "<li>No subscribers yet.</li>";
+            } else {
+                subscribers.forEach(subscriber => {
+                    const li = document.createElement('li');
+                    li.innerText = subscriber;
+                    subscriberListElem.appendChild(li);
+                });
+            }
+            document.getElementById('subscribers-list').style.display = 'block'; // Show the list
+        }
     </script>
 </body>
+
 </html>
+             
+                 
