@@ -1,8 +1,3 @@
-To add a review page to your cricket store code, we'll create a new section dedicated to submitting and displaying reviews for products. This will include a form for users to submit reviews as well as a list to display all submitted reviews.
-
-Below is the modified code with the review page implemented:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +9,16 @@ Below is the modified code with the review page implemented:
     <!-- Link to Google Fonts for modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .star {
+            font-size: 24px;
+            color: gray;
+            cursor: pointer;
+        }
+        .star.selected {
+            color: orange;
+        }
+    </style>
 </head>
 
 <body>
@@ -128,10 +133,20 @@ Below is the modified code with the review page implemented:
             <form id="review-form" onsubmit="submitReview(event)">
                 <input type="text" id="reviewer-name" required placeholder="Your Name" />
                 <input type="text" id="review-product" required placeholder="Product Name" />
+                
+                <div>
+                    <span class="star" onclick="selectStar(1)">★</span>
+                    <span class="star" onclick="selectStar(2)">★</span>
+                    <span class="star" onclick="selectStar(3)">★</span>
+                    <span class="star" onclick="selectStar(4)">★</span>
+                    <span class="star" onclick="selectStar(5)">★</span>
+                </div>
+
                 <textarea id="review-text" required placeholder="Write your review..."></textarea>
                 <button type="submit">Submit Review</button>
             </form>
-            <div id="reviews-list">
+            <button onclick="showReviews()">Show Reviews</button>
+            <div id="review-items-container" style="display: none;">
                 <h3>Reviews:</h3>
                 <ul id="review-items"></ul>
             </div>
@@ -149,6 +164,9 @@ Below is the modified code with the review page implemented:
         // Array to hold subscribers and reviews
         const subscribers = [];
         const reviews = [];
+
+        // Variable to store selected rating
+        let selectedRating = 0;
 
         // Function to show the corresponding section based on the link clicked
         function showSection(sectionId) {
@@ -192,14 +210,19 @@ Below is the modified code with the review page implemented:
             const product = document.getElementById('review-product').value;
             const review = document.getElementById('review-text').value;
 
+            if (selectedRating === 0) {
+                alert("Please select a rating before submitting your review.");
+                return;
+            }
+
             // Create a review object
-            const reviewItem = { name, product, review };
+            const reviewItem = { name, product, review, rating: selectedRating };
             reviews.push(reviewItem); // Add review to reviews array
 
             // Clear form
             document.getElementById('review-form').reset();
-
-            // Update the reviews list
+            selectedRating = 0; // Reset selected rating
+            resetStars();
             displayReviews();
         }
 
@@ -211,29 +234,36 @@ Below is the modified code with the review page implemented:
             if (reviews.length === 0) {
                 reviewItemsElem.innerHTML = "<li>No reviews yet.</li>";
             } else {
-                reviews.forEach(({ name, product, review }) => {
+                reviews.forEach(({ name, product, review, rating }) => {
                     const li = document.createElement('li');
-                    li.innerText = `${name} on ${product}: ${review}`;
+                    li.innerHTML = `${name} on ${product}: ${review} <strong>Rating: ${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</strong>`;
                     reviewItemsElem.appendChild(li);
                 });
             }
+            document.getElementById('review-items-container').style.display = 'block'; // Show the reviews container
+        }
+
+        // Function to select star rating
+        function selectStar(rating) {
+            selectedRating = rating;
+            resetStars();
+            for (let i = 1; i <= rating; i++) {
+                document.querySelectorAll('.star')[i - 1].classList.add('selected');
+            }
+        }
+
+        // Function to reset stars to unselected
+        function resetStars() {
+            document.querySelectorAll('.star').forEach(star => {
+                star.classList.remove('selected');
+            });
+        }
+
+        // Function to show reviews
+        function showReviews() {
+            displayReviews();
         }
     </script>
 </body>
 
 </html>
-```
-
-### Explanation of Changes:
-1. **New Reviews Section**: 
-   - Added a `<section>` with id `reviews` to hold the form for submitting reviews and the list to display submitted reviews.
-   - The form includes inputs for the reviewer's name, product name, and the review text.
-
-2. **Functionality**:
-   - **submitReview(event)**: This function is triggered upon form submission. It collects the input values, creates a review object, adds it to the `reviews` array, clears the input fields, and then displays the updated list of reviews.
-   - **displayReviews()**: This function handles the rendering of reviews on the page.
-
-3. **Navigation**: A new link is added to the navigation bar for the Reviews section.
-
-With these modifications, users can now leave reviews on products and view a list of all submitted reviews directly from the review page. The interactivity allows customers to share their experiences and feedback about the products in your cricket store!
-    
