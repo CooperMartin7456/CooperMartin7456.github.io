@@ -19,6 +19,7 @@
             <a href="#" onclick="showSection('products2')">Products Page 2</a>
             <a href="#" onclick="showSection('cart')">Shopping Cart</a>
             <a href="#" onclick="showSection('subscription')">Subscribe</a> <!-- Link to subscription -->
+            <a href="#" onclick="showSection('reviews')">Reviews</a> <!-- Link to reviews -->
             <input type="text" id="search-bar" placeholder="Search products..." onkeyup="searchProducts()">
         </nav>
     </header>
@@ -110,6 +111,23 @@
             <p id="subscription-message"></p>
             <ul id="subscribers-list" style="display: none;"></ul> <!-- List to show subscribers -->
         </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" style="display: none;">
+            <h2>Product Reviews</h2>
+            <form id="review-form" onsubmit="return submitReview();">
+                <label for="rating">Rate it (1-5 stars):</label>
+                <input type="number" id="rating" min="1" max="5" required>
+                <br>
+                <label for="review-text">Your Review:</label>
+                <textarea id="review-text" rows="4" required></textarea>
+                <br>
+                <button type="submit">Submit Review</button>
+            </form>
+            <button onclick="showReviews()">Show All Reviews</button>
+            <p id="reviews-message"></p>
+            <ul id="reviews-list" style="display: none;"></ul> <!-- List to show reviews -->
+        </section>
     </main>
     
     <!-- Footer Section -->
@@ -121,6 +139,7 @@
     <script src="script.js"></script>
     <script>
         const subscribers = [];  // Array to store subscribed emails
+        const reviews = [];       // Array to store reviews
 
         function showSection(sectionId) {
             const sections = document.querySelectorAll('main > section');
@@ -157,6 +176,43 @@
                 subscribersList.style.display = 'block'; // Show the list
             } else {
                 subscribersList.innerHTML = '<li>No subscribers yet.</li>'; // Show message if no subscribers
+            }
+        }
+
+        function submitReview() {
+            const ratingInput = document.getElementById('rating');
+            const reviewInput = document.getElementById('review-text');
+            const message = document.getElementById('reviews-message');
+
+            // Create a review object
+            const review = {
+                rating: ratingInput.value,
+                text: reviewInput.value
+            };
+
+            // Add review to the reviews array
+            reviews.push(review);
+
+            message.textContent = `Thank you for your review!`;
+            ratingInput.value = ''; // Clear the rating input
+            reviewInput.value = ''; // Clear the review input
+
+            return false; // Prevent form submission
+        }
+
+        function showReviews() {
+            const reviewsList = document.getElementById('reviews-list');
+            reviewsList.innerHTML = ''; // Clear existing list
+
+            if (reviews.length > 0) {
+                reviews.forEach(review => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Rating: ${review.rating} - ${review.text}`; // Show rating and review
+                    reviewsList.appendChild(listItem);
+                });
+                reviewsList.style.display = 'block'; // Show the list
+            } else {
+                reviewsList.innerHTML = '<li>No reviews yet.</li>'; // Show message if no reviews
             }
         }
     </script>
