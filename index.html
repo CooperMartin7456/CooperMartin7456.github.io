@@ -106,7 +106,9 @@
                 <input type="email" id="email" placeholder="Enter your email" required>
                 <button type="submit">Subscribe</button>
             </form>
+            <button onclick="showSubscribers()">See Subscribers</button> <!-- Button to view subscribers -->
             <p id="subscription-message"></p>
+            <ul id="subscribers-list" style="display: none;"></ul> <!-- List to show subscribers -->
         </section>
     </main>
     
@@ -118,6 +120,8 @@
     <!-- Link to the external JavaScript file -->
     <script src="script.js"></script>
     <script>
+        const subscribers = [];  // Array to store subscribed emails
+
         function showSection(sectionId) {
             const sections = document.querySelectorAll('main > section');
             sections.forEach(section => {
@@ -130,13 +134,30 @@
             const emailInput = document.getElementById('email');
             const message = document.getElementById('subscription-message');
 
-            // Simulating a successful subscription (Can be replaced with actual API logic)
+            // Simulating a successful subscription
             if (emailInput.value) {
+                subscribers.push(emailInput.value); // Add the email to the subscribers array
                 message.textContent = `Thank you for subscribing with the email: ${emailInput.value}! A 10% discount will be applied to your next purchase.`;
                 emailInput.value = ''; // Clear the input field
             }
 
             return false; // Prevent form submission
+        }
+
+        function showSubscribers() {
+            const subscribersList = document.getElementById('subscribers-list');
+            subscribersList.innerHTML = ''; // Clear existing list
+
+            if (subscribers.length > 0) {
+                subscribers.forEach(email => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = email; // List each subscriber email
+                    subscribersList.appendChild(listItem);
+                });
+                subscribersList.style.display = 'block'; // Show the list
+            } else {
+                subscribersList.innerHTML = '<li>No subscribers yet.</li>'; // Show message if no subscribers
+            }
         }
     </script>
 </body>
