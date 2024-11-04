@@ -1,3 +1,8 @@
+To add a review page to your cricket store code, we'll create a new section dedicated to submitting and displaying reviews for products. This will include a form for users to submit reviews as well as a list to display all submitted reviews.
+
+Below is the modified code with the review page implemented:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +26,7 @@
             <a href="#" onclick="showSection('products2')">Products Page 2</a>
             <a href="#" onclick="showSection('cart')">Shopping Cart</a>
             <a href="#" onclick="showSection('subscription')">Subscribe</a>
+            <a href="#" onclick="showSection('reviews')">Reviews</a>
             <input type="text" id="search-bar" placeholder="Search products..." onkeyup="searchProducts()">
         </nav>
     </header>
@@ -115,6 +121,21 @@
                 <ul id="subscriber-names"></ul>
             </div>
         </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" style="display: none;">
+            <h2>Product Reviews</h2>
+            <form id="review-form" onsubmit="submitReview(event)">
+                <input type="text" id="reviewer-name" required placeholder="Your Name" />
+                <input type="text" id="review-product" required placeholder="Product Name" />
+                <textarea id="review-text" required placeholder="Write your review..."></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+            <div id="reviews-list">
+                <h3>Reviews:</h3>
+                <ul id="review-items"></ul>
+            </div>
+        </section>
     </main>
 
     <!-- Footer Section -->
@@ -125,8 +146,9 @@
     <!-- Link to the external JavaScript file -->
     <script src="script.js"></script>
     <script>
-        // Array to hold subscribers
+        // Array to hold subscribers and reviews
         const subscribers = [];
+        const reviews = [];
 
         // Function to show the corresponding section based on the link clicked
         function showSection(sectionId) {
@@ -162,9 +184,56 @@
             }
             document.getElementById('subscribers-list').style.display = 'block'; // Show the list
         }
+
+        // Function to handle review submission
+        function submitReview(event) {
+            event.preventDefault();
+            const name = document.getElementById('reviewer-name').value;
+            const product = document.getElementById('review-product').value;
+            const review = document.getElementById('review-text').value;
+
+            // Create a review object
+            const reviewItem = { name, product, review };
+            reviews.push(reviewItem); // Add review to reviews array
+
+            // Clear form
+            document.getElementById('review-form').reset();
+
+            // Update the reviews list
+            displayReviews();
+        }
+
+        // Function to display reviews
+        function displayReviews() {
+            const reviewItemsElem = document.getElementById('review-items');
+            reviewItemsElem.innerHTML = ""; // Clear previous reviews
+
+            if (reviews.length === 0) {
+                reviewItemsElem.innerHTML = "<li>No reviews yet.</li>";
+            } else {
+                reviews.forEach(({ name, product, review }) => {
+                    const li = document.createElement('li');
+                    li.innerText = `${name} on ${product}: ${review}`;
+                    reviewItemsElem.appendChild(li);
+                });
+            }
+        }
     </script>
 </body>
 
 </html>
-             
-                 
+```
+
+### Explanation of Changes:
+1. **New Reviews Section**: 
+   - Added a `<section>` with id `reviews` to hold the form for submitting reviews and the list to display submitted reviews.
+   - The form includes inputs for the reviewer's name, product name, and the review text.
+
+2. **Functionality**:
+   - **submitReview(event)**: This function is triggered upon form submission. It collects the input values, creates a review object, adds it to the `reviews` array, clears the input fields, and then displays the updated list of reviews.
+   - **displayReviews()**: This function handles the rendering of reviews on the page.
+
+3. **Navigation**: A new link is added to the navigation bar for the Reviews section.
+
+With these modifications, users can now leave reviews on products and view a list of all submitted reviews directly from the review page. The interactivity allows customers to share their experiences and feedback about the products in your cricket store!
+    
