@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Cricket Store</title>
+    <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="style.css">
+    <!-- Link to Google Fonts for modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <h1>Welcome to the Cricket Store</h1>
         <nav>
             <a href="#" onclick="showSection('home')">Home</a>
-            <a href="#" onclick="showSection('products')">Products</a>
+            <a href="#" onclick="showSection('products')">Products</a> <!-- Link to the combined products page -->
             <a href="#" onclick="showSection('cart')">Shopping Cart</a>
             <a href="#" onclick="showSection('subscription')">Subscribe</a>
             <a href="#" onclick="showSection('reviews')">Reviews</a>
@@ -20,7 +23,9 @@
         </nav>
     </header>
     
+    <!-- Main Content -->
     <main>
+        <!-- Home Section -->
         <section id="home" class="active">
             <h2>Your One-stop Destination for Cricket Gear</h2>
             <img src="Simple.jpg" alt="Cricket Gear">
@@ -29,6 +34,7 @@
             <p><strong>Shop Now!</strong></p>
         </section>
 
+        <!-- Products Page -->
         <section id="products" style="display: none;">
             <h2>Featured Products</h2>
             <div class="product-list">
@@ -39,7 +45,71 @@
                     <p>Price: $150</p>
                     <button class="add-to-cart" onclick="addToCart('Cricket Bat', 150)">Add to Cart</button>
                 </div>
-                <!-- Other product items -->
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dw485781dc/images/418851/Rebel_418851_hi-res.jpg?sw=750&sh=750&sm=fit&q=60" alt="Cricket Ball" class="product-image">
+                    <h3>Cricket Ball</h3>
+                    <p>Durable and great for practice.</p>
+                    <p>Price: $27.95</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Ball', 27.95)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dw9ec05363/images/58070001/Rebel_58070001_white_hi-res.jpg?sw=1000&sh=1000&sm=fit&q=70" alt="Protective Gear" class="product-image">
+                    <h3>Protective Gear</h3>
+                    <p>Ensure safety while playing.</p>
+                    <p>Price: $50</p>
+                    <button class="add-to-cart" onclick="addToCart('Protective Gear', 50)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dwccca8d0a/images/61410101/Rebel_61410101-00_navy_hi-res.jpg?sw=750&sh=750&sm=fit&q=60" alt="Cricket Helmet" class="product-image">
+                    <h3>Cricket Helmet</h3>
+                    <p>Protect your head while batting.</p>
+                    <p>Price: $45</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Helmet', 45)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dw7eac6fb8/images/63681401/Rebel_63681401-01_white_hi-res.jpg?sw=750&sh=750&sm=fit&q=60" alt="Cricket Pads" class="product-image">
+                    <h3>Cricket Pads</h3>
+                    <p>Comfortable and protective.</p>
+                    <p>Price: $30</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Pads', 30)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.rebelsport.com.au/dw/image/v2/BBRV_PRD/on/demandware.static/-/Sites-srg-internal-master-catalog/default/dw7fb6a10d/images/67126001/Rebel_67126001_whitenavy_hi-res.jpg?sw=750&sh=750&sm=fit&q=60" alt="Cricket Gloves" class="product-image">
+                    <h3>Cricket Gloves</h3>
+                    <p>For a better grip.</p>
+                    <p>Price: $25</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Gloves', 25)">Add to Cart</button>
+                </div>
+
+                <!-- Added new product items -->
+                <div class="product-item">
+                    <img src="https://example.com/path-to-your-image-1.jpg" alt="Cricket Shoes" class="product-image">
+                    <h3>Cricket Shoes</h3>
+                    <p>Lightweight and durable for sprinting.</p>
+                    <p>Price: $75</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Shoes', 75)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://example.com/path-to-your-image-2.jpg" alt="Cricket Bag" class="product-image">
+                    <h3>Cricket Bag</h3>
+                    <p>Store all your gear safely.</p>
+                    <p>Price: $40</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Bag', 40)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://example.com/path-to-your-image-3.jpg" alt="Cricket Cap" class="product-image">
+                    <h3>Cricket Cap</h3>
+                    <p>Stay protected from the sun.</p>
+                    <p>Price: $15</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Cap', 15)">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://example.com/path-to-your-image-4.jpg" alt="Cricket Socks" class="product-image">
+                    <h3>Cricket Socks</h3>
+                    <p>Comfortable and breathable.</p>
+                    <p>Price: $10</p>
+                    <button class="add-to-cart" onclick="addToCart('Cricket Socks', 10)">Add to Cart</button>
+                </div>
             </div>
         </section>
 
@@ -48,90 +118,156 @@
             <h2>Your Shopping Cart</h2>
             <div id="cart-items"></div>
             <p id="cart-total">Total: $0</p>
-            <button id="checkout-button" onclick="toggleCheckoutSection()">Proceed to Checkout</button>
-            
-            <!-- Checkout Section -->
-            <div id="checkout-section" style="display: none;">
-                <h3>Checkout</h3>
-                <form id="checkout-form" onsubmit="return completeCheckout();">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" required>
-                    <br>
-                    <label for="address">Shipping Address:</label>
-                    <input type="text" id="address" required>
-                    <br>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required>
-                    <br>
-                    <button type="submit">Complete Purchase</button>
-                </form>
-                <p id="checkout-message"></p>
-            </div>
+            <button id="checkout-button" onclick="checkout()">Proceed to Checkout</button>
         </section>
 
-        <!-- Other Sections -->
+        <!-- Subscription Section -->
+        <section id="subscription" style="display: none;">
+            <h2>Subscribe to Get 10% Off Every Item!</h2>
+            <p>Sign up with your email to receive exclusive offers and discounts.</p>
+            <form id="subscription-form" onsubmit="return subscribe();">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <button onclick="showSubscribers()">See Subscribers</button>
+            <p id="subscription-message"></p>
+            <ul id="subscribers-list" style="display: none;"></ul>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" style="display: none;">
+            <h2>Product Reviews</h2>
+            <form id="review-form" onsubmit="return submitReview();">
+                <label for="rating">Rate it (1-5 stars):</label>
+                <input type="number" id="rating" min="1" max="5" required>
+                <br>
+                <label for="review-text">Your Review:</label>
+                <textarea id="review-text" rows="4" required></textarea>
+                <br>
+                <button type="submit">Submit Review</button>
+            </form>
+            <button onclick="showReviews()">Show All Reviews</button>
+            <p id="reviews-message"></p>
+            <ul id="reviews-list" style="display: none;"></ul>
+        </section>
     </main>
     
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2023 Cricket Store. All rights reserved.</p>
     </footer>
 
+    <!-- Link to the external JavaScript file -->
     <script src="script.js"></script>
+
     <script>
-        const subscribers = [];
-        const cart = [];
-        const reviews = [];
+        const subscribers = [];  // Array to store subscribed emails
+        const cart = [];         // Array to store items in the shopping cart
+        const reviews = [];      // Array to store reviews
 
         function showSection(sectionId) {
             const sections = document.querySelectorAll('main > section');
             sections.forEach(section => {
-                section.style.display = 'none';
+                section.style.display = 'none'; // Hide all sections
             });
-            document.getElementById(sectionId).style.display = 'block';
+            document.getElementById(sectionId).style.display = 'block'; // Show the selected section
         }
 
         function addToCart(productName, productPrice) {
+            // Add the selected item to the cart
             cart.push({ name: productName, price: productPrice });
+
+            // Update cart display
             updateCartDisplay();
         }
 
         function updateCartDisplay() {
             const cartItemsContainer = document.getElementById('cart-items');
-            cartItemsContainer.innerHTML = '';
-            let total = 0;
+            cartItemsContainer.innerHTML = ''; // Clear existing items
+            let total = 0; // Track total price
 
             cart.forEach((item) => {
                 const listItem = document.createElement('div');
                 listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
                 cartItemsContainer.appendChild(listItem);
-                total += item.price;
+                total += item.price; // Accumulate total price
             });
 
+            // Update total display
             document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
         }
 
-        function toggleCheckoutSection() {
-            const checkoutSection = document.getElementById('checkout-section');
-            checkoutSection.style.display = checkoutSection.style.display === 'none' ? 'block' : 'none';
+        function checkout() {
+            alert("Proceeding to checkout...");
+            // Logic for checkout can be added here
         }
 
-        function completeCheckout() {
-            const name = document.getElementById('name').value;
-            const address = document.getElementById('address').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('checkout-message');
+        function subscribe() {
+            const emailInput = document.getElementById('email');
+            const message = document.getElementById('subscription-message');
 
-            // Simulate a successful checkout process
-            message.textContent = `Thank you ${name}! Your order will be shipped to ${address}. A confirmation email has been sent to ${email}.`;
-            // Optionally, clear the cart:
-            cart.length = 0; // Clear the cart
-            updateCartDisplay(); // Update display
-            document.getElementById('checkout-section').style.display = 'none'; // Hide checkout section
+            // Simulating a successful subscription
+            if (emailInput.value) {
+                subscribers.push(emailInput.value); // Add the email to the subscribers array
+                message.textContent = `Thank you for subscribing with the email: ${emailInput.value}! A 10% discount will be applied to your next purchase.`;
+                emailInput.value = ''; // Clear the input field
+            }
 
             return false; // Prevent form submission
         }
 
-        // Additional functions for subscribers, reviews, etc.
+        function showSubscribers() {
+            const subscribersList = document.getElementById('subscribers-list');
+            subscribersList.innerHTML = ''; // Clear existing list
+
+            if (subscribers.length > 0) {
+                subscribers.forEach(email => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = email; // List each subscriber email
+                    subscribersList.appendChild(listItem);
+                });
+                subscribersList.style.display = 'block'; // Show the list
+            } else {
+                subscribersList.innerHTML = '<li>No subscribers yet.</li>'; // Show message if no subscribers
+            }
+        }
+
+        function submitReview() {
+            const ratingInput = document.getElementById('rating');
+            const reviewInput = document.getElementById('review-text');
+            const message = document.getElementById('reviews-message');
+
+            // Create a review object
+            const review = {
+                rating: ratingInput.value,
+                text: reviewInput.value
+            };
+
+            // Add review to the reviews array
+            reviews.push(review);
+
+            message.textContent = `Thank you for your review!`;
+            ratingInput.value = ''; // Clear the rating input
+            reviewInput.value = ''; // Clear the review input
+
+            return false; // Prevent form submission
+        }
+
+        function showReviews() {
+            const reviewsList = document.getElementById('reviews-list');
+            reviewsList.innerHTML = ''; // Clear existing list
+
+            if (reviews.length > 0) {
+                reviews.forEach(review => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Rating: ${review.rating} - ${review.text}`; // Show rating and review
+                    reviewsList.appendChild(listItem);
+                });
+                reviewsList.style.display = 'block'; // Show the list
+            } else {
+                reviewsList.innerHTML = '<li>No reviews yet.</li>'; // Show message if no reviews
+            }
+        }
     </script>
 </body>
 </html>
